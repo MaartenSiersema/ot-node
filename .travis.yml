@@ -32,6 +32,8 @@ script:
   - node isStartHealthy.js arangodb
   # switches graph database in .env
   - node switchDatabase.js
+  # stop arangod
+  - kill $(lsof -t -i:8529)
   # checks for neo4j based solution
   - npm run config
   # Run tests second time without calculating coverage report
