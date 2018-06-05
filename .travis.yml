@@ -34,8 +34,8 @@ script:
   - node switchDatabase.js
   # checks for neo4j based solution
   - npm run config
-  # TODO investigate why running npm test second time results in stuck on travis
-  # - npm test
+  # Run tests second time without calculating coverage report
+  - node_modules/.bin/mocha --exit test/modules/*.test.js
   - npm start &>neo4jdb.log &
   - sleep 10
   - jobs
